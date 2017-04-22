@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Panel, Row, Col, Grid } from 'react-bootstrap';
+import { Panel } from 'react-bootstrap';
 
 function header(author) {
   return (
