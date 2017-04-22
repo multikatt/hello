@@ -7,11 +7,18 @@ build:
   commands:
     - npm install
     - npm run build
-publish:
-  docker:
-    registry: quay.io
-    username: $$QUAY_USERNAME
-    password: $$QUAY_PASSWORD
-    email: $$QUAY_EMAIL
-    repo: $$QUAY_REPO
-    file: Dockerfile
+deploy:
+  rancher:
+    url: $$R_URL
+    access_key: $$R_ACC
+    secret_key: $$R_SEC
+    service: $$R_SRV
+    docker_image: $$R_IMG
+#publish:
+#  docker:
+#    registry: quay.io
+#    username: $$QUAY_USERNAME
+#    password: $$QUAY_PASSWORD
+#    email: $$QUAY_EMAIL
+#    repo: $$QUAY_REPO
+#    file: Dockerfile
