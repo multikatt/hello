@@ -1,2 +1,4 @@
 build:
   image: node:6.7.0
+  commands:
+    - npm run build
