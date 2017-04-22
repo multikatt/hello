@@ -14,5 +14,4 @@ publish:
     password: $$QUAY_PASSWORD
     email: $$QUAY_EMAIL
     repo: $$QUAY_REPO
-    tag: $$TAG
     file: Dockerfile
