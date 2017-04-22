@@ -16,5 +16,3 @@ publish:
     repo: $$QUAY_REPO
     tag: $$TAG
     file: Dockerfile
-    when:
-      event: tag
