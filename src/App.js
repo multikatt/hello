@@ -21,7 +21,7 @@ function entry(props) {
 class App extends Component {
   render() {
     return (
-      <div>{entry({author: "test", message: "hello world"})}</div>
+      <div>{entry({author: "test", message: "helloest"})}</div>
     );
   }
 }
