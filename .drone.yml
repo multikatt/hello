@@ -1,21 +1,20 @@
-pipeline:
-  cache:
-    mount:
-      - node_modules
-      - .git
-  build:
-    image: node:6.7.0
-    commands:
-      - npm install
-      - npm run build
-  publish:
-    docker:
-      registry: quay.io
-      username: $$QUAY_USERNAME
-      password: $$QUAY_PASSWORD
-      email: $$QUAY_EMAIL
-      repo: $$QUAY_REPO
-      tag: $$TAG
-      file: Dockerfile
-      when:
-        event: tag
+cache:
+  mount:
+    - node_modules
+    - .git
+build:
+  image: node:6.7.0
+  commands:
+    - npm install
+    - npm run build
+publish:
+  docker:
+    registry: quay.io
+    username: $$QUAY_USERNAME
+    password: $$QUAY_PASSWORD
+    email: $$QUAY_EMAIL
+    repo: $$QUAY_REPO
+    tag: $$TAG
+    file: Dockerfile
+    when:
+      event: tag
