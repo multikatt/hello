@@ -16,7 +16,7 @@ publish:
     repo: $$QUAY_REPO
     file: Dockerfile
     when:
-      event: tag
+      branch: master
 deploy:
   rancher:
     url: $$R_URL
@@ -25,4 +25,4 @@ deploy:
     service: $$R_SRV
     docker_image: $$R_IMG
     when:
-      event: tag
+      branch: master
