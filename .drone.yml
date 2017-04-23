@@ -24,3 +24,5 @@ deploy:
     secret_key: $$R_SEC
     service: $$R_SRV
     docker_image: $$R_IMG
+    when:
+      event: tag
