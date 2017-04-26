@@ -1,6 +1,7 @@
 pipeline:
-  happiness:
-    image: node:6.7.0
+  build:
+    image: golang
     commands:
-      - npm install
-      - npm run build
+      - go get
+      - go build
+      - go test
