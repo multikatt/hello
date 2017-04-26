@@ -4,11 +4,10 @@ pipeline:
       - node_modules
       - .git
   happiness:
-    build:
-      image: node:6.7.0
-      commands:
-        - npm install
-        - npm run build
+    image: node:6.7.0
+    commands:
+      - npm install
+      - npm run build
   publish:
     docker:
       registry: quay.io
