@@ -1,21 +1,17 @@
 pipeline:
-    cache:
-      mount:
-        - node_modules
-        - .git
     build:
       image: node:6.7.0
       commands:
         - npm install
         - npm run build
-    publish:
-      docker:
-        registry: quay.io
-        file: Dockerfile
-        when:
-          event: tag
-    deploy:
-      rancher:
-        url: $$R_URL
-        when:
-          event: tag
+    #publish:
+    #  docker:
+    #    registry: quay.io
+    #    file: Dockerfile
+    #    when:
+    #      event: tag
+    #deploy:
+    #  rancher:
+    #    url: $$R_URL
+    #    when:
+    #      event: tag
