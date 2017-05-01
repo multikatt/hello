@@ -1,28 +1,21 @@
-cache:
-  mount:
-    - node_modules
-    - .git
-build:
-  image: node:6.7.0
-  commands:
-    - npm install
-    - npm run build
-publish:
-  docker:
-    registry: quay.io
-    username: $$QUAY_USERNAME
-    password: $$QUAY_PASSWORD
-    email: $$QUAY_EMAIL
-    repo: $$QUAY_REPO
-    file: Dockerfile
-    when:
-      event: tag
-deploy:
-  rancher:
-    url: $$R_URL
-    access_key: $$R_ACC
-    secret_key: $$R_SEC
-    service: $$R_SRV
-    docker_image: $$R_IMG
-    when:
-      event: tag
+pipeline:
+    cache:
+      mount:
+        - node_modules
+        - .git
+    build:
+      image: node:6.7.0
+      commands:
+        - npm install
+        - npm run build
+    publish:
+      docker:
+        registry: quay.io
+        file: Dockerfile
+        when:
+          event: tag
+    deploy:
+      rancher:
+        url: $$R_URL
+        when:
+          event: tag
