@@ -12,13 +12,6 @@ pipeline:
     commands:
       - npm install
 
-  rebuild-cache:
-    image: drillster/drone-volume-cache
-    rebuild: true
-    mount:
-      - ./node_modules
-    volumes:
-      - /tmp/cache:/cache
 
   publish:
     docker:
@@ -37,3 +30,11 @@ pipeline:
       secret_key: ${R_SEC}
       service: hello/hello
       docker_image: drone/drone:latest
+
+  rebuild-cache:
+    image: drillster/drone-volume-cache
+    rebuild: true
+    mount:
+      - ./node_modules
+    volumes:
+      - /tmp/cache:/cache
