@@ -11,10 +11,12 @@ pipeline:
     image: node
     commands:
       - npm install
+      - npm build
 
 
   publish:
     docker:
+      image: plugins/docker
       registry: quay.io
       username: ${QUAY_USERNAME}
       password: ${QUAY_PASSWORD}
