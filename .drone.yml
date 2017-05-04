@@ -25,7 +25,7 @@ pipeline:
 
   deploy:
     rancher:
-      image: ${QUAY_IMG}
+      image: ${QUAY_REPO}
       url: ${R_URL}
       access_key: ${R_ACC}
       secret_key: ${R_SEC}
