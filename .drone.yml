@@ -13,13 +13,13 @@ pipeline:
         - npm install
         - npm run build
 
-  rebuild-cache:
-    image: drillster/drone-volume-cache
-    rebuild: true
-    mount:
-      - ./node_modules
-    volumes:
-      - /tmp/cache:/cache
+   rebuild-cache:
+      image: drillster/drone-volume-cache
+      rebuild: true
+      mount:
+        - ./node_modules
+      volumes:
+        - /tmp/cache:/cache
     #publish:
     #  docker:
     #    registry: quay.io
