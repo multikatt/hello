@@ -19,3 +19,21 @@ pipeline:
       - ./node_modules
     volumes:
       - /tmp/cache:/cache
+
+  publish:
+    docker:
+      registry: quay.io
+      username: ${QUAY_USERNAME}
+      password: ${QUAY_PASSWORD}
+      email: ${QUAY_EMAIL}
+      repo: ${QUAY_REPO}
+      file: Dockerfile
+
+  deploy:
+    rancher:
+      image: ${QUAY_IMG}
+      url: ${R_URL}
+      access_key: ${R_ACC}
+      secret_key: ${R_SEC}
+      service: hello/hello
+      docker_image: drone/drone:latest
