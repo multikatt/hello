@@ -38,3 +38,4 @@ pipeline:
       - ./node_modules
     volumes:
       - /tmp/cache:/cache
+
