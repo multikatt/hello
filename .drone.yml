@@ -15,14 +15,13 @@ pipeline:
 
 
   publish:
-    docker:
-      image: plugins/docker
-      registry: quay.io
-      username: ${QUAY_USERNAME}
-      password: ${QUAY_PASSWORD}
-      email: ${QUAY_EMAIL}
-      repo: ${QUAY_REPO}
-      file: Dockerfile
+    image: plugins/docker
+    registry: quay.io
+    username: ${QUAY_USERNAME}
+    password: ${QUAY_PASSWORD}
+    email: ${QUAY_EMAIL}
+    repo: ${QUAY_REPO}
+    file: Dockerfile
 
   #deploy:
   #  rancher:
