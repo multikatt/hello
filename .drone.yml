@@ -24,7 +24,7 @@ pipeline:
     file: Dockerfile
 
   deploy:
-    image: peloton/drone-rancher
+    image: peloton/drone-rancher:14
     url: ${R_URL}
     access_key: ${R_ACC}
     secret_key: ${R_SEC}
@@ -38,4 +38,3 @@ pipeline:
       - ./node_modules
     volumes:
       - /tmp/cache:/cache
-
