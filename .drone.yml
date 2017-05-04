@@ -24,13 +24,12 @@ pipeline:
     file: Dockerfile
 
   deploy:
-    rancher:
-      image: ${QUAY_REPO}
-      url: ${R_URL}
-      access_key: ${R_ACC}
-      secret_key: ${R_SEC}
-      service: hello/hello
-      docker_image: drone/drone:latest
+    image: peloton/drone-rancher
+    url: ${R_URL}
+    access_key: ${R_ACC}
+    secret_key: ${R_SEC}
+    service: hello/hello
+    docker_image: ${QUAY_REPO}
 
   rebuild-cache:
     image: drillster/drone-volume-cache
