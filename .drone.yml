@@ -1,32 +1,21 @@
 pipeline:
-    restore-cache:
-      image: drillster/drone-volume-cache
-      restore: true
-      mount:
-        - ./node_modules
-      volumes:
-        - /tmp/cache:/cache
+  restore-cache:
+    image: drillster/drone-volume-cache
+    restore: true
+    mount:
+      - ./node_modules
+    volumes:
+      - /tmp/cache:/cache
 
-    build:
-      image: node:6.7.0
-      commands:
-        - npm install
+  build:
+    image: node
+    commands:
+      - npm install
 
-   rebuild-cache:
-      image: drillster/drone-volume-cache
-      rebuild: true
-      mount:
-        - ./node_modules
-      volumes:
-        - /tmp/cache:/cache
-    #publish:
-    #  docker:
-    #    registry: quay.io
-    #    file: Dockerfile
-    #    when:
-    #      event: tag
-    #deploy:
-    #  rancher:
-    #    url: $$R_URL
-    #    when:
-    #      event: tag
+  rebuild-cache:
+    image: drillster/drone-volume-cache
+    rebuild: true
+    mount:
+      - ./node_modules
+    volumes:
+      - /tmp/cache:/cache
